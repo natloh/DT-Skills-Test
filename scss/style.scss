@@ -1,0 +1,70 @@
+// META
+// ====
+	@import 'compass/css3';
+	@import 'helpers';
+	@import 'normalize';
+	@import 'range';
+
+	$primary-font: 'Helvetica', Arial, sans-serif;
+
+
+// RANGES
+
+	// Default ranges (based on Bootstrap).
+	$theme-ranges: (
+		sm: (max:  480),
+		md: (max:  768),
+		lg: (min: 1200),
+	);
+	$ranges: map-merge($ranges, $theme-ranges);
+
+// COLORS
+
+	$black: #000000;
+	$white: #ffffff;
+
+// GLOBAL
+// ======
+
+	html {
+		font-size: 62.5%; // 10px
+		overflow-x: hidden;
+	}
+
+	body {
+		font-family: $primary-font;
+		color: $black;
+		@include font-layout(14,18);
+	}
+
+	* {
+		@include box-sizing(border-box);
+	}
+
+	// Include this anywhere arbitrary HTML/WYSIWYG content may be displayed.
+	@mixin content {
+		@include no-first-last-margins;
+		@include clear-after;
+	}
+
+	.clear, .clearfix:after, .cf:after, .comment-respond:after {
+		clear: both;
+	}
+
+	@mixin container-block {
+		max-width: 1200px;
+		//min-width: 960px;
+		width: 90%;
+		padding: 12px 20px 0;
+		@include margin-x(auto);
+		@include clear-after;
+
+		@include range(md) {
+			//min-width: 580px;
+			width: 100%;
+		}
+
+		@include range(sm) {
+			//min-width: 320px;
+		}
+	}

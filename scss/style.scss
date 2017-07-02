@@ -15,7 +15,7 @@
 	$theme-ranges: (
 		sm: (max:  480),
 		md: (max:  768),
-		lg: (min: 1200),
+		lg: (min: 1500),
 	);
 	$ranges: map-merge($ranges, $theme-ranges);
 
@@ -53,19 +53,16 @@
 	}
 
 	@mixin container-block {
-		max-width: 1200px;
-		//min-width: 960px;
+		max-width: 1500px;
 		width: 90%;
 		padding: 12px 20px 0;
 		@include margin-x(auto);
 		@include clear-after;
 
 		@include range(md) {
-			//min-width: 580px;
 			width: 100%;
 		}
 
 		@include range(sm) {
-			//min-width: 320px;
 		}
 	}

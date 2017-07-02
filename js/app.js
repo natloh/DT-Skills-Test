@@ -71,7 +71,7 @@ var initQuiz = function() {
         }*/
     }
 
-    for (var k=0; k<qBtns.length - 1; k++) {
+    for (var k=0; k<qBtns.length; k++) {
         qBtns[k].className += qBtns[k].className ? ' btn-' + k : 'btn-' + k;
 
         qBtns[k].addEventListener("click", function(e) {
@@ -94,7 +94,7 @@ var initQuiz = function() {
                     q[qNum].className += q[qNum].className ? ' active' : 'active';
                     changeAnswers(qNum);
                 } else {
-                    showResults(score);
+                    showResults(score, qCount);
                 }
             }, 1000);
         });
@@ -114,7 +114,7 @@ var changeAnswers = function (qNum) {
         aContainer.className = 'answer-container';
     }, 500);
 
-    for (var k=0; k<qBtns.length - 1; k++) {
+    for (var k=0; k<qBtns.length; k++) {
         qBtns[k].innerText = qs[qNum][k];
     }
 }
@@ -137,6 +137,18 @@ var showResults = function(score, qCount) {
     
     r.className += r.className ? ' active' : 'active';
     aContainer.className += aContainer.className ? ' done' : 'done';
+
+    // 7 6 , 5 4 3 , 2 1 0 
+    if (score > 5 ){
+        r.getElementsByClassName('good')[0].style.display = 'block';
+    } else if (score > 2 ){
+        r.getElementsByClassName('ok')[0].style.display = 'block';
+    } else {
+        r.getElementsByClassName('bad')[0].style.display = 'block';
+    } 
+
+    r.getElementsByClassName('your')[0].innerText = score;
+    r.getElementsByClassName('total')[0].innerText = '/' + qCount;
 
     r.getElementsByClassName('retake')[0].addEventListener("click", function(e){
         e.preventDefault();

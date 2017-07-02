@@ -23,6 +23,10 @@
 
 	$black: #000000;
 	$white: #ffffff;
+	$blue: #29aecc;
+	$light-blue: #62c8df;
+	$purple: #5a46dd;
+	$turquoise: #25cfb0;
 
 // GLOBAL
 // ======
@@ -35,7 +39,7 @@
 	body {
 		font-family: $primary-font;
 		color: $black;
-		@include font-layout(14,18);
+		@include font-layout(18,28);
 	}
 
 	* {
@@ -65,4 +69,74 @@
 
 		@include range(sm) {
 		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 800;
+		text-transform: uppercase;
+
+		&.light {
+			font-weight: 100;
+			text-transform: none;
+		}
+	}
+
+	h1 {
+		@include font-layout(76, 82);
+	}
+
+	h2 {
+		@include font-layout(42, 48);
+	}
+
+	h3 {
+		@include font-layout(30, 34);
+	}
+
+	a {
+		@include link-color($blue, $light-blue);
+		font-weight: bold;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+
+// CONTAINERS
+// ============
+
+	.container {
+		@include container-block;
+	}
+
+	.column-container {
+		@include display-flex;
+		@include justify-content(space-around);
+
+		@include range(sm) {
+			display: block;
+		}
+
+		.content, .center-content, .right-content {
+			width: 100%;
+		}
+	}
+
+	.content {
+		max-width: 960px;
+		margin: auto;
+	}
+
+	.center-content {
+		text-align: center;
+	}
+
+	.right-content {
+		text-align: right;
+	}
+
+	.full-width-container {
+		width: 100%;
+		width: 100vw;
 	}

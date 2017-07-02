@@ -27,6 +27,7 @@
 	$light-blue: #62c8df;
 	$purple: #5a46dd;
 	$turquoise: #25cfb0;
+	$light-gray: #f7f7f7;
 
 // GLOBAL
 // ======
@@ -93,6 +94,16 @@
 		@include font-layout(30, 34);
 	}
 
+	.image-headline {
+		display: inline-block;
+		padding: 18px 60px;
+		border-bottom: 2px solid $black;
+	}
+
+	p {
+		margin: .55em 0;
+	}
+
 	a {
 		@include link-color($blue, $light-blue);
 		font-weight: bold;
@@ -139,4 +150,159 @@
 	.full-width-container {
 		width: 100%;
 		width: 100vw;
+	}
+
+
+// NAVIGATION
+// ===========
+
+	#site-navigation {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 99;
+
+		.nav-container {
+			padding:20px 50px;
+			position: relative;
+		}
+
+		.site-branding {
+			svg {
+				width: 180px;
+				height: 25px;
+			}
+		}
+
+		.site-menu {
+			position: absolute;
+			right: 45px;
+			top: 25px;
+
+			.sidebar-nav {
+				position: absolute;
+				width: 0;
+				height: 100vh;
+				top: -25px;
+				right: -45px;
+				overflow: hidden;
+			}
+		}
+	}
+
+
+// BLOCKS
+// =======
+
+	.blocks-container {
+		.page-block {
+			margin: 80px 0;
+		}
+	}
+
+	#page-title-block {
+		margin: 100px 0;
+		.content {
+			h1 {
+				margin-top: .2em;
+				margin-bottom: .5em;
+			}
+		}
+	}
+
+	#love-what-you-do-block {
+		background-color: $light-gray;
+		padding-bottom: 80px;
+
+		.container {
+			padding-top: 40px;
+		}
+
+		.images-marquee {
+			position: relative;
+
+			.marquee-slide {
+				position: relative;
+				display: inline-block;
+				padding-right: 50px;
+
+				.headshot {
+					position: absolute;
+					top: 20%;
+					right: 0;
+				}
+
+				.caption {
+					text-align: center;
+
+					strong { text-transform: uppercase; font-weight: 800; }
+				}
+			}
+		}
+	}
+
+	#we-do-dont-block {
+		margin-bottom: 40px;
+
+		.container {
+			padding-bottom: 80px;
+			border-bottom: 1px solid $light-gray;
+
+			.content {
+				h2 {
+					margin: .6em 0 0;
+				}
+			}
+		}
+	}
+
+	#noteables-block {
+		margin-top: 40px;
+		
+		.container {
+			.column-container {
+				@include align-items(center);
+			}
+		}
+	}
+
+	#instagram-block {
+		position: relative;
+		padding: 33.333333% 0 0 0;
+		overflow: hidden;
+
+		#dt-instagram-feed {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			&:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			div {
+				width: 16.6667%;
+				padding: 16.6667% 0 0 0;
+				display: block;
+				float: left;
+				position: relative;
+
+				img {
+					max-width: 100%;
+					max-height: 100%;
+					margin: auto;
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					//width: 100%;
+					//height: 100%;
+				}
+			}
+		}
 	}

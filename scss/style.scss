@@ -123,8 +123,26 @@
 		bottom: 0;
 		height: 100%;
 		width: auto;
-		z-index: -1;
+		z-index: -2;
 		overflow: hidden;
+
+		/*video {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100vh;
+			width: auto;
+			height: auto;
+			//z-index: -1;
+			@include transform(translateX(-50%) translateY(-50%));
+			background-size: cover; 
+		}
+
+		img {
+			@extend video;
+			position: absolute;
+		}*/
 	}
 
 
@@ -212,13 +230,13 @@
 
 	.blocks-container {
 		.page-block {
-			margin: 80px 0;
+			background-color: $white;
 		}
 	}
 
 	#page-title-block {
-		margin: 0;
 		padding: 100px 0;
+		z-index: -2;
 
 		.content {
 			h1 {
@@ -241,9 +259,15 @@
 			position: relative;
 
 			.marquee-slide {
-				position: relative;
 				display: inline-block;
-				padding-right: 50px;
+				vertical-align: middle;
+				padding: 0 20px;
+
+				.slide {
+					position: relative;
+					display: inline-block;
+					padding: 20px 50px 20px 0;
+				}
 
 				.headshot {
 					position: absolute;
@@ -261,11 +285,13 @@
 	}
 
 	#quotes-block {
-		margin-top: 0;
+		margin: 0;
 	}
 
 	#we-do-dont-block {
-		margin-bottom: 40px;
+		padding-bottom: 40px;
+		padding-top: 80px;
+		margin: 0;
 
 		.container {
 			padding-bottom: 80px;
@@ -280,7 +306,9 @@
 	}
 
 	#noteables-block {
-		margin-top: 40px;
+		margin: 0;
+		padding-top: 40px;
+		padding-bottom: 80px;
 		
 		.container {
 			.column-container {
@@ -293,7 +321,7 @@
 		position: relative;
 		padding: 33.333333% 0 0 0;
 		overflow: hidden;
-		margin-bottom: 0;
+		margin: 0;
 
 		#dt-instagram-feed {
 			position: absolute;
@@ -340,8 +368,14 @@
 
 			.column-container {
 				margin-top: 70px; 
+
+				p strong { text-transform: uppercase; }
 			}
 		}
+	}
+
+	#requirements-block {
+		padding: 80px 0;
 	}
 
 	#quiz-block {
@@ -384,6 +418,10 @@
 					@include justify-content(center);
 					color: $white;
 					height: 100%;
+
+					@media (max-width: 1200px) {
+						h2 {font-size: 1vw;}
+					}
 
 					h2:first-child {
 						margin-top: 1.5em;
@@ -437,6 +475,23 @@
 // ======
 
 	#quiz-app {
+		.button {
+			@include link-color($white, $black);
+			background-color: transparent;
+			display: inline-block;
+			padding: 10px;
+			min-width: 200px;
+			@include font-layout(14, 18);
+			text-transform: uppercase;
+			@include border-radius(999px);
+			border: 2px solid $white;
+
+			&:hover {
+				background-color: $white;
+				text-decoration: none;
+			}
+		}
+
 		.questions-container {
 			position: relative;
 			height: 600px;
@@ -499,6 +554,42 @@
 				@extend .question;
 
 				.result {display: none;}
+
+				.score {
+					@include font-layout(85, 90);
+					font-weight: 100;
+					color: #666666;
+					margin-bottom: .5em;
+					.your {
+						@include font-layout(150, 150);
+						color: $white;
+					}
+				}
+
+				.retake {
+					color: $white;
+					font-weight: 500;
+					text-transform: uppercase;
+					text-decoration: underline;
+					@include font-layout(14, 18);
+				}
+
+				.button.facebook {
+					min-width: 260px;
+					border-color: #4665a3;
+					background-color: #4665a3;
+					margin: 1.5em;
+					&:hover {
+						color: $white;
+						background-color: transparent;
+					}
+				}
+
+				.button.twitter {
+					@extend .button.facebook;
+					border-color: #60b5f0;
+					background-color: #60b5f0;
+				}
 			}
 
 			.answer-container {
@@ -508,17 +599,18 @@
 				bottom: 0;
 				@include transition(0.5s);
 
+
 				&.done {
 					bottom: -110px;
 				}
 
 				&.answered {
 					.answer-choices {
-						@include scale(1, .2);
+						@include transform(scaleY(0));
 					}
 					.correct, .incorrect {
 						&.answer-result {
-							@include scale(1, 1);
+							@include transform(scaleY(1));
 						}
 					}
 				}
@@ -530,29 +622,14 @@
 					height: 110px;
 					bottom: 0;
 					@include transition(0.25s);
-
-					.button {
-						@include link-color($white, $black);
-						background-color: transparent;
-						display: inline-block;
-						padding: 10px;
-						min-width: 200px;
-						@include font-layout(14, 18);
-						text-transform: uppercase;
-						@include border-radius(999px);
-						border: 2px solid $white;
-
-						&:hover {
-							background-color: $white;
-							text-decoration: none;
-						}
-					}
+					@include transform-origin(0, 100%);
 				}
 
 				.correct, .incorrect {
 					@extend .answer-choices;
 					text-align: center;
-					@include scale(1, 0);
+					@include transform(scaleY(0));
+					@include transform-origin(0, 0);
 					top: 0;
 
 					h2 { 

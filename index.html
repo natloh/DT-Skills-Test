@@ -21,7 +21,6 @@
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
-<script type="text/javascript" src="js/instafeed.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -104,64 +103,80 @@
 				</article>
 
 				<article class="full-width-container">
-					<div class="images-marquee">
-						<div class="marquee-slide slide1">
-							<div class="headshot">
-								<img src="images/marquee/headshot1.png">
+					<div id="examples-marquee">
+						<div class="images-marquee">
+							<div class="marquee-slide slide1">
+								<div class="stack-slide">
+									<div class="slide">
+										<div class="headshot">
+											<img src="images/marquee/headshot1.png">
+										</div>
+										<img src="images/marquee/image1.png">
+										<div class="caption">
+											<p><strong>UI Design</strong> <em>by Eduardo</em></p>
+										</div>
+									</div>
+								</div>
+								<div class="stack-slide">
+									<div class="slide">
+										<div class="headshot">
+											<img src="images/marquee/headshot2.png">
+										</div>
+										<img src="images/marquee/image2.png">
+										<div class="caption">
+											<p><strong>UI Design</strong> <em>by Angela</em></p>
+										</div>
+									</div>
+								</div>
 							</div>
-							<img src="images/marquee/image1.png">
-							<div class="caption">
-								<p><strong>UI Design</strong> <em>by Eduardo</em></p>
-							</div>
-						</div>
 
-						<div class="marquee-slide slide2">
-							<div class="headshot">
-								<img src="images/marquee/headshot2.png">
+							<div class="marquee-slide slide3">
+								<div class="slide">
+									<div class="headshot">
+										<img src="images/marquee/headshot3.png">
+									</div>
+									<img src="images/marquee/image3.png">
+									<div class="caption">
+										<p><strong>Product Design</strong> <em>by Shawn</em></p>
+									</div>
+								</div>
 							</div>
-							<img src="images/marquee/image2.png">
-							<div class="caption">
-								<p><strong>UI Design</strong> <em>by Angela</em></p>
-							</div>
-						</div>
 
-						<div class="marquee-slide slide3">
-							<div class="headshot">
-								<img src="images/marquee/headshot3.png">
+							<div class="marquee-slide slide4">
+								<div class="stack-slide">
+									<div class="slide">
+										<div class="headshot">
+											<img src="images/marquee/headshot4.png">
+										</div>
+										<img src="images/marquee/image4.png">
+										<div class="caption">
+											<p><strong>Application Design</strong> <em>by Brad</em></p>
+										</div>
+									</div>
+								</div>
+								<div class="stack-slide">
+									<div class="slide">
+										<div class="headshot">
+											<img src="images/marquee/headshot5.png">
+										</div>
+										<img src="images/marquee/image5.png">
+										<div class="caption">
+											<p><strong>UI Design</strong> <em>by Elizebeth</em></p>
+										</div>
+									</div>
+								</div>
 							</div>
-							<img src="images/marquee/image3.png">
-							<div class="caption">
-								<p><strong>Product Design</strong> <em>by Shawn</em></p>
-							</div>
-						</div>
 
-						<div class="marquee-slide slide4">
-							<div class="headshot">
-								<img src="images/marquee/headshot4.png">
-							</div>
-							<img src="images/marquee/image4.png">
-							<div class="caption">
-								<p><strong>Application Design</strong> <em>by Brad</em></p>
-							</div>
-						</div>
-
-						<div class="marquee-slide slide5">
-							<div class="headshot">
-								<img src="images/marquee/headshot5.png">
-							</div>
-							<img src="images/marquee/image5.png">
-							<div class="caption">
-								<p><strong>UI Design</strong> <em>by Elizebeth</em></p>
-							</div>
-						</div>
-
-						<div class="marquee-slide slide6">
-							<div class="headshot">
-								<img src="images/marquee/headshot6.png">
-							</div>
-							<img src="images/marquee/image6.png">
-							<div class="caption">
-								<p><strong>UI Design</strong> <em>by Sarah</em></p>
+							<div class="marquee-slide slide6">
+								<div class="slide">
+									<div class="headshot">
+										<img src="images/marquee/headshot6.png">
+									</div>
+									<img src="images/marquee/image6.png">
+									<div class="caption">
+										<p><strong>UI Design</strong> <em>by Sarah</em></p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -385,7 +400,7 @@
 						</div>
 					</div>
 				</article>
-				<div class="bg-image">
+				<div class="bg-image" id="perks-vid-sticky">
 					<video autoplay="" class="hero-video-video" id="hero-video-video" loop="" preload="metadata" width="100%">
 						<source data-src="https://d7o1u0qhfov8.cloudfront.net/video/careers-hero/careers-video.mp4" type="video/mp4" src="https://d7o1u0qhfov8.cloudfront.net/video/careers-hero/careers-video.mp4">
 					</video>
@@ -524,13 +539,9 @@
 									</div>
 								</div>
 
-								<div class="column-container">
-									<div class="center-content">
-										<a href="#" class="button twitter">Share on twitter</a>
-									</div>
-									<div class="center-content">
-										<a href="#" class="button facebook">Share on facebook</a>
-									</div>
+								<div class="center-content">
+									<a href="https://twitter.com/intent/tweet?original_referer=https://dt.natloh.com&via=dtelepathy&text=I%20got%20a%20SCORE%20on%20the%20dt%20design%20test.%20Try%20it%20yourself." OnClick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;" target="_blank" class="button twitter">Share on twitter</a>
+									<a target="_blank" onClick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.dtelepathy.com&title=Try+Your+Luck+With+The+dt+Design+Quiz&description=I+got+a+SCORE.+Can+you+do+better+than+me?" class="button facebook">Share on facebook</a>
 								</div>
 
 								<div class="center-content">
@@ -594,6 +605,8 @@
 		</div>
 
 	</div>
-	<script src="js/app.js"></script>
+	<script type="text/javascript" src="js/instafeed.min.js"></script>
+	<script type="text/javascript" src="js/crawler.js"></script>
+	<script  type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

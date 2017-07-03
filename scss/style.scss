@@ -511,6 +511,10 @@
 				@include transition(0.5s);
 
 				&.active { top: 0; }
+				&.completed {
+					top: 0;
+					@include scale(.8);
+				}
 
 				&:nth-child(2) {
 					background-color: #efefef;
